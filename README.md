@@ -10,7 +10,7 @@ App deployed in heroku: [https://pdfcut2.herokuapp.com/](https://pdfcut2.herokua
 ## Build app:
 
 1. Open project in vscode or Visual Studio
-2. Install the packages that pdfcut.csproj contains,  from Nuget
+2. Install the packages that pdfcut.csproj contains,  from Nuget with: dotnet restore
 3. And run: dotnet watch run
 
 jpolstre@gmail.com
