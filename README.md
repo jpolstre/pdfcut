@@ -3,7 +3,7 @@ This project is and little test example for delete pages from an document pdf. A
 
 * Backend: c#, .Net Core, Razor Pages
 * Frontend: Bootstrap, Vue
-* Development environment and deploy: VsCode, Docker   , Heroku
+* Development environment and deploy: VsCode, Docker, Heroku: dotnet restore
 
 App deployed in heroku: [https://pdfcut2.herokuapp.com/](https://pdfcut2.herokuapp.com/)
 
