@@ -53,7 +53,7 @@ namespace pdfcut.Pages
 
       if (pages.Count() > 0)
       {
-        var outputDir = Path.Combine(_env.WebRootPath, "files", directory);
+        var outputDir = Path.Combine(_env.WebRootPath, "upload", directory);
         var destFilePdfMerge = Path.Combine(outputDir, $"{directory}.pdf");
         using (var originalPdf = new FileStream(Path.Combine(outputDir, $"{directory}.pdf"), FileMode.Open, FileAccess.Read))
         {
@@ -103,7 +103,7 @@ namespace pdfcut.Pages
       try
       {
 
-        System.IO.DirectoryInfo di = new DirectoryInfo(Path.Combine(_env.WebRootPath, "files", directoryName));
+        System.IO.DirectoryInfo di = new DirectoryInfo(Path.Combine(_env.WebRootPath, "upload", directoryName));
 
         if (!di.Exists)
         {
@@ -145,7 +145,7 @@ namespace pdfcut.Pages
 
     public ActionResult OnGetDownload(string dir, string pdfName)
     {
-      var pathFile = Path.Combine(_env.WebRootPath, "files", dir, $"{dir}.pdf");
+      var pathFile = Path.Combine(_env.WebRootPath, "upload", dir, $"{dir}.pdf");
       var stream = new FileStream(pathFile, FileMode.Open, FileAccess.Read);
       var f = File(stream, "application/pdf", $"{pdfName}_modificado.pdf");
 
@@ -161,7 +161,7 @@ namespace pdfcut.Pages
       {
         var pdfHelper = new PdfHelper(_env);
 
-        var outputDir = Path.Combine(_env.WebRootPath, "files", nameDir);
+        var outputDir = Path.Combine(_env.WebRootPath, "upload", nameDir);
 
 
         list = await pdfHelper.MakeImagesSplitAsync(nameDir, outputDir, cancellationToken);
@@ -255,11 +255,11 @@ namespace pdfcut.Pages
 
     private async Task MakeDirectoryAndFile(string nameDir, Stream pdfInStream)
     {
-      /*NOTA.- En IIS, Se debe otorgar los permisos de seguidad a la carpeta "files" (propiedades/seguridad/(en grupos elegir IIS_IUSRS(marcelo-PC\IIS_IUSRS))
+      /*NOTA.- En IIS, Se debe otorgar los permisos de seguidad a la carpeta "upload" (propiedades/seguridad/(en grupos elegir IIS_IUSRS(marcelo-PC\IIS_IUSRS))
           editar y darle control total modificar y  escritura lectura.(cada vez que se vuelva a copiar el contenido de la app en C:\inetpub\wwwroot\[cutpdf], hay que  volverle a dar los permisos 
           a la carpeta donde se  crean los directorios.)
        */
-      var outputDir = Path.Combine(_env.WebRootPath, "files", nameDir);
+      var outputDir = Path.Combine(_env.WebRootPath, "upload", nameDir);
       var originalPdfName = Path.Combine(outputDir, $"{nameDir}.pdf");
       System.IO.Directory.CreateDirectory(outputDir);
 

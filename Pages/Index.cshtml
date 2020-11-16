@@ -100,7 +100,7 @@
             <div v-for="card in cards" key="card.id" class="card" :class="{'card-selected':card.selected}"
                 v-on:click="selectPage(card.id)">
                 <div class="card-body text-center">
-                    <img :src="`files/${file.dir}/${card.thumb}`" alt="image-thumb" class="noselect" width="195"
+                    <img :src="`upload/${file.dir}/${card.thumb}`" alt="image-thumb" class="noselect" width="195"
                         height="245">
                 </div>
                 <button class="btn btn-light bt-sm position-absolute btn-zoom" v-on:click="zoomPage($event, card.id)">
@@ -168,7 +168,7 @@
                 </div>
                 <div class="modal-body">
                     <div :class="{'selected-page-zoom':currentSelected.selected}" v-on:click="toggleSelectImage()">
-                        <img class="noselect" :src="`files/${this.file.dir}/${currentSelected.thumb}`" width="612"
+                        <img class="noselect" :src="`upload/${this.file.dir}/${currentSelected.thumb}`" width="612"
                             height="792" />
                     </div>
 
