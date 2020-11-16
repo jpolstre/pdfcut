@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - cutpdf</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+    <header>
+        <nav
+            class="mynav navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class=" ml-2 navbar-brand" asp-area="" asp-page="/Index">
+                    Cut<span class="font-weight-bold">Pdf</span>
+                </a>
+                <button class="d-none navbar-toggler" type="button" data-toggle="collapse"
+                    data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            @{
+                var currentYear =  DateTime.Now.Year;
+            }
+            &copy; @currentYear - cutpdf - <a asp-area="" asp-page="/About">Acerca de</a>
+        </div>
+    </footer>
+
+    <div id="loader" class="loader"><span class="text-loader font-weight-bold">Cargando...</span></div>
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>
